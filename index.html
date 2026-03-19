@@ -44,16 +44,22 @@
         min-height: 100vh;
         font-family: "Montserrat", sans-serif;
         color: var(--white);
+        background: #fff;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 28px 12px 40px;
+        visibility: hidden;
+      }
+
+      body.ready {
+        visibility: visible;
         background: radial-gradient(
             circle at top,
             var(--sky) 0,
             transparent 55%
           ),
           linear-gradient(180deg, var(--royal), #003bb0 60%, var(--deep));
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        padding: 28px 12px 40px;
       }
 
 
@@ -605,6 +611,7 @@
 
         if (isInAppBrowser()) {
           // Está no in-app browser → mostra o overlay com passo a passo
+          document.body.classList.add("ready");
           overlay.classList.add("active");
           document.body.style.overflow = "hidden";
         } else {
